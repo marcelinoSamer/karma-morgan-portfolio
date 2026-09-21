@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+/** All imagery is local, exported from the portfolio document into /public. */
+const nextConfig: NextConfig = {};
 
 export default nextConfig;

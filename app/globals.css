@@ -1,26 +1,137 @@
 @import "tailwindcss";
 
+/*
+  Design tokens, taken from Karma Morgan's own portfolio document.
+
+  Theme: the portfolio is pure black with white type and airbrushed chrome.
+  That is the brand, so the site is black-locked rather than dual-mode, and the
+  background is a true #000 so the chrome star sprites (JPEGs exported from the
+  document, matted on black) sit on the page with no visible seam.
+
+  Radius rule for this project:
+    - plates, cards, media -> var(--radius-card) (14px)
+    - buttons, pills       -> fully rounded
+  Nothing else invents its own corner scale.
+*/
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #000000;
+  --surface: #0c0c0c;
+  --sunk: #141414;
+  --text: #ffffff;
+  --muted: #a3a3a3;
+  --line: rgb(255 255 255 / 0.14);
+  --line-strong: rgb(255 255 255 / 0.32);
+  --chrome: #c8c8c8;
+
+  --radius-card: 14px;
+
+  color-scheme: dark;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-sunk: var(--sunk);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-chrome: var(--chrome);
+
+  --font-sans: var(--font-jost);
+  --font-display: var(--font-rubik);
+
+  --radius-card: var(--radius-card);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--text);
+    color: var(--bg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 3px;
+    border-radius: 4px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* Heavy rounded caps, the voice of the printed portfolio. */
+  .type-display {
+    font-family: var(--font-rubik), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+
+  /* The SCOPE / PROJECT / YEAR label style from the document. */
+  .type-label {
+    font-family: var(--font-rubik), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.6875rem;
+  }
+
+  /* Dotted leader, as used in the printed index. */
+  .leader {
+    background-image: radial-gradient(
+      circle,
+      var(--line-strong) 1px,
+      transparent 1.5px
+    );
+    background-position: 0 65%;
+    background-size: 9px 9px;
+    background-repeat: repeat-x;
+  }
+
+  /*
+    Artwork exported from the portfolio is matted on black. JPEG edges land a
+    shade off true black, which shows as a faint rectangle on the page, so the
+    four edges are feathered away.
+  */
+  .matte {
+    mask-image:
+      linear-gradient(to right, transparent, #000 5%, #000 95%, transparent),
+      linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent);
+    mask-composite: intersect;
+    mask-repeat: no-repeat;
+  }
+
+  .hide-scrollbar {
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
