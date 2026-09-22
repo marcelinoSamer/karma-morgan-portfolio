@@ -5,14 +5,14 @@
  * 2023-2026 graphic design portfolio. The imagery in /public/work and
  * /public/brand is exported straight from that document.
  *
- * Contact details and social links are PLACEHOLDERS: there is no domain or
- * public profile yet. Swap the values marked `placeholder` when there is.
+ * The email and Instagram are real. Behance and Are.na are still placeholders:
+ * swap the `#` hrefs in `elsewhere` when those profiles exist.
  */
 
 export const person = {
   name: "Karma Morgan",
   role: "Graphic designer",
-  email: "hello@example.com", // placeholder
+  email: "kerminaemadmorgan@aucegypt.edu",
   years: "2023-2026",
   headline: ["Graphic design,", "mostly drawn", "by hand."],
   intro:
@@ -235,9 +235,12 @@ export const projects: Project[] = [
   },
 ];
 
-/** Placeholders. No public profiles exist yet. */
+/** Instagram is live; the other two are placeholders until the profiles exist. */
 export const elsewhere = [
-  { label: "Instagram", href: "#" },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/cooked5squirrel?stkn=MnVvbnBybW9zMGpn&utm_source=qr",
+  },
   { label: "Behance", href: "#" },
   { label: "Are.na", href: "#" },
 ];
