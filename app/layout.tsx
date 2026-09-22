@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Jost, Rubik } from "next/font/google";
+import { LightboxProvider } from "@/components/lightbox";
 import { person } from "@/content/site";
 import "./globals.css";
 
@@ -34,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${jost.variable} ${rubik.variable} antialiased`}>
-        {children}
+        <LightboxProvider>{children}</LightboxProvider>
       </body>
     </html>
   );

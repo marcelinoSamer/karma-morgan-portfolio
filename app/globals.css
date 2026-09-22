@@ -64,6 +64,18 @@
     color: var(--bg);
   }
 
+  /*
+    Artwork is view-only. This kills drag-to-desktop, the iOS long-press save
+    sheet and text-selection of the image itself; the matching right-click and
+    ⌘S handlers live in <LightboxProvider>. It deters hand-saving, it is not
+    protection — the files are still served over HTTP.
+  */
+  img {
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    user-select: none;
+  }
+
   :focus-visible {
     outline: 2px solid var(--text);
     outline-offset: 3px;

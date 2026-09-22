@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -8,6 +7,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteNav } from "@/components/site-nav";
 import { StarField } from "@/components/star-field";
 import { WavyBadge } from "@/components/wavy-badge";
+import { ZoomableImage } from "@/components/zoomable-image";
 import { person, projects } from "@/content/site";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -112,7 +112,8 @@ export default async function ProjectPage({ params }: Params) {
 
           <Reveal className="mt-14">
             <div className="relative aspect-16/9 w-full overflow-hidden rounded-card bg-surface">
-              <Image
+              <ZoomableImage
+                group="plates"
                 src={project.cover.src}
                 alt={project.cover.alt}
                 fill
@@ -138,7 +139,8 @@ export default async function ProjectPage({ params }: Params) {
                 }
               >
                 <div className="relative aspect-16/9 w-full overflow-hidden rounded-card bg-surface">
-                  <Image
+                  <ZoomableImage
+                    group="plates"
                     src={plate.src}
                     alt={plate.alt}
                     fill

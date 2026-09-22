@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowDown, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import { cta, person } from "@/content/site";
 import { StarField } from "./star-field";
+import { ZoomableImage } from "./zoomable-image";
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -86,7 +86,8 @@ export function Hero() {
           transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-6"
         >
-          <Image
+          <ZoomableImage
+            group="brand"
             src={person.lettering.src}
             alt={person.lettering.alt}
             width={person.lettering.width}

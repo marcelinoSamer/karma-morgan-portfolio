@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { person } from "@/content/site";
 import { Reveal } from "./reveal";
+import { ZoomableImage } from "./zoomable-image";
 
 export function About() {
   return (
@@ -8,7 +8,8 @@ export function About() {
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-10 px-4 py-20 sm:px-6 lg:grid-cols-12 lg:gap-16 lg:px-10 lg:py-28">
         {/* Her own self-portrait doodle, matted on black like the sprites. */}
         <Reveal className="lg:col-span-3">
-          <Image
+          <ZoomableImage
+            group="brand"
             src={person.mascot.src}
             alt={person.mascot.alt}
             width={person.mascot.width}
