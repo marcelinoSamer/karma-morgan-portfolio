@@ -21,10 +21,10 @@ const rubik = Rubik({
 
 export const metadata: Metadata = {
   title: `${person.name} - ${person.role}`,
-  description: person.intro,
+  description: person.summary,
   openGraph: {
     title: `${person.name} - ${person.role}`,
-    description: person.intro,
+    description: person.summary,
     type: "website",
   },
 };

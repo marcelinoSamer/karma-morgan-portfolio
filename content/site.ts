@@ -14,9 +14,16 @@ export const person = {
   role: "Graphic designer",
   email: "kerminaemadmorgan@aucegypt.edu",
   years: "2023-2026",
-  headline: ["Graphic design,", "mostly drawn", "by hand."],
-  intro:
-    "Illustration, editorial and brand identity. Five projects, built from research up.",
+  /** Set line by line: the break after each part is the point. */
+  headline: ["Nothing here", "was made", "by accident."],
+  /** Two halves: what the work is, then how it gets made. Set apart in the hero. */
+  intro: {
+    what: "Funerary poems from Upper Egypt. Tiles that outlived the empires that fired them. A forest where human, animal and plant forgot to stay separate.",
+    how: "I research until a thing has a shape, then draw until it speaks.",
+  },
+  /** Short, literal, for search results and link previews. */
+  summary:
+    "Illustration, editorial and brand identity. Five projects, 2023-2026, built from research up.",
   about: [
     "I design publications, magazines, brand systems and posters, and I draw most of what goes inside them. Projects usually start in research and end in print.",
     "The work here runs from 2023 to 2026: an illustrated book on Upper Egyptian funeral poetry, an editorial issue on tiles, a wool shop identity, a poster series on child labour, and a set of characters from a forest that is not well.",

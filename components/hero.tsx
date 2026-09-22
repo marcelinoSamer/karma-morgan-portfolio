@@ -46,18 +46,27 @@ export function Hero() {
 
       <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-6">
+          {/* Each line is its own block so the break lands where the writing
+              wants it, not wherever the column happens to run out. */}
           <motion.h1
             {...rise(0)}
-            className="type-display max-w-[15ch] text-[2.75rem] leading-[0.94] text-balance sm:text-6xl lg:text-[4.25rem]"
+            className="type-display text-[2.75rem] leading-[0.94] sm:text-6xl lg:text-[4.25rem]"
           >
-            Graphic design, drawn by hand.
+            {person.headline.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
           </motion.h1>
 
           <motion.p
             {...rise(0.1)}
-            className="mt-7 max-w-[42ch] text-lg leading-relaxed font-light text-muted md:text-xl"
+            className="mt-7 max-w-[46ch] text-lg leading-relaxed font-light text-muted md:text-xl"
           >
-            {person.intro}
+            {/* The fragments are the projects; the second half is how they get
+                made. Weighted apart so the turn reads as a turn. */}
+            <span className="text-text">{person.intro.what}</span>{" "}
+            {person.intro.how}
           </motion.p>
 
           <motion.div {...rise(0.2)} className="mt-9 flex flex-wrap gap-3">
